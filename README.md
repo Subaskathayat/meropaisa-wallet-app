@@ -1,11 +1,15 @@
-# Mero Paisa Wallet - Flutter Money Wallet App
+# 💰 Mero Paisa Wallet - Flutter Digital Wallet App
 
-A comprehensive Flutter mobile money wallet application with Firebase backend for peer-to-peer transfers, utility payments, and QR code functionality.
+A comprehensive Flutter mobile money wallet application with Firebase backend, featuring secure biometric authentication, real-time transactions, and modern UI/UX design.
 
 ## Features
 
-### 🔐 Authentication
-- Phone number OTP authentication via Firebase Auth
+### 🔐 Security & Authentication
+- **Custom Biometric Authentication** - Enhanced fingerprint authentication with custom bottom sheet UI
+- **PIN-based Security** - Fallback authentication system
+- **Phone number OTP authentication** via Firebase Auth
+- **Transaction Authentication** - Multi-layer security for all financial operations
+- **Firebase App Check** - Additional security layer
 - New user profile setup with initial balance
 - Secure user session management
 
@@ -40,10 +44,12 @@ A comprehensive Flutter mobile money wallet application with Firebase backend fo
 - Real-time balance updates
 
 ### 🎨 Modern UI/UX
-- Clean, modern Material Design interface
-- Google Fonts (Poppins) typography
-- Gradient backgrounds and smooth animations
-- Responsive design for various screen sizes
+- **Custom Biometric Bottom Sheets** - Animated fingerprint scanning interface
+- **Material Design 3** - Modern, intuitive interface
+- **Smooth Animations** - Enhanced user experience with pulsing and transition effects
+- **Google Fonts (Poppins)** typography
+- **Responsive Design** - Works on all screen sizes
+- Gradient backgrounds and modern visual elements
 
 ## Technology Stack
 
@@ -66,7 +72,10 @@ lib/
 │   ├── user_model.dart      # User data model
 │   └── transaction_model.dart # Transaction data model
 ├── services/
-│   └── firebase_service.dart # Firebase operations service
+│   ├── firebase_service.dart # Firebase operations service
+│   ├── biometric_service.dart # Biometric authentication
+│   ├── biometric_ui_service.dart # Custom biometric UI
+│   └── transaction_auth_service.dart # Transaction security
 ├── screens/
 │   ├── auth_screen.dart     # Phone authentication
 │   ├── otp_screen.dart      # OTP verification
@@ -80,6 +89,7 @@ lib/
 │   ├── support_screen.dart  # Help and support
 │   └── more_screen.dart     # Profile and settings
 └── widgets/                 # Reusable UI components
+    └── biometric_bottom_sheet.dart # Custom biometric UI
 ```
 
 ## Setup Instructions
@@ -103,12 +113,38 @@ lib/
    flutter pub get
    ```
 
-3. **Firebase Setup** (For production)
-   - Create a new Firebase project at https://console.firebase.google.com
-   - Enable Authentication with Phone Number sign-in
-   - Create a Firestore database
-   - Download and replace `firebase_options.dart` with your configuration
-   - Add your `google-services.json` (Android) and `GoogleService-Info.plist` (iOS)
+3. **Firebase Setup** ⚠️ **REQUIRED**
+
+   You need to set up your own Firebase project:
+
+   a. Create a new Firebase project at [Firebase Console](https://console.firebase.google.com/)
+
+   b. Enable the following services:
+      - Authentication (Phone, Email/Password)
+      - Firestore Database
+      - Storage
+      - App Check (recommended)
+
+   c. Download configuration files:
+      - `google-services.json` for Android → place in `android/app/`
+      - `GoogleService-Info.plist` for iOS → place in `ios/Runner/`
+
+   d. Update `lib/firebase_options.dart` with your Firebase configuration:
+      ```dart
+      // Replace placeholder values with your actual Firebase config
+      static const FirebaseOptions android = FirebaseOptions(
+        apiKey: 'YOUR_ANDROID_API_KEY',
+        appId: 'YOUR_ANDROID_APP_ID',
+        messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
+        projectId: 'your-firebase-project-id',
+        storageBucket: 'your-firebase-project-id.firebasestorage.app',
+      );
+      ```
+
+   e. Configure Firestore Security Rules:
+      ```javascript
+      // Copy rules from firestore_security_rules.txt to your Firebase Console
+      ```
 
 4. **Run the app**
    ```bash
@@ -175,13 +211,22 @@ transactions/{transactionId} {
 - Service-specific icons and labels
 - Payment confirmation with receipt
 
-## Security Features
+## 🔐 Security Features
 
-- Firebase Authentication for secure user management
-- Firestore security rules (to be configured)
-- Input validation and sanitization
-- Balance verification before transactions
-- Atomic database transactions
+### Biometric Authentication
+- **Custom UI**: Beautiful bottom sheet with animated fingerprint scanning
+- **Multiple States**: Scanning, success, error with visual feedback
+- **Fallback Support**: Automatic PIN fallback when biometric fails
+- **Platform Support**: Works on both Android and iOS
+
+### Transaction Security
+- **Multi-layer Authentication**: Biometric + PIN verification
+- **Firebase Authentication** for secure user management
+- **Firestore security rules** (configured)
+- **Firebase App Check**: Additional security layer for API calls
+- **Input validation** and sanitization
+- **Balance verification** before transactions
+- **Atomic database transactions**
 
 ## Demo Limitations
 
@@ -191,15 +236,17 @@ This is a demonstration app with the following limitations:
 - No actual money handling
 - Limited error handling for production scenarios
 
-## Future Enhancements
+## 🚀 Future Enhancements
 
 - Real payment gateway integration
 - Push notifications for transactions
-- Biometric authentication
+- ✅ **Biometric authentication** (COMPLETED)
 - Transaction receipts and PDF generation
 - Multi-language support
 - Dark mode theme
 - Advanced analytics and reporting
+- Cryptocurrency support
+- Investment features
 
 ## Contributing
 
@@ -213,6 +260,25 @@ This is a demonstration app with the following limitations:
 
 This project is for educational purposes. Please ensure proper licensing for production use.
 
-## Support
+## 📞 Support
 
-For support and questions, please refer to the in-app support section or contact the development team.
+For support and questions, please refer to the in-app support section or create an issue in this repository.
+
+---
+
+## ⚠️ Important Security Notice
+
+**This repository contains placeholder Firebase configuration for security reasons.**
+
+- All API keys and sensitive data have been replaced with placeholder values
+- You **MUST** set up your own Firebase project and replace the configuration files
+- Never commit real API keys, secrets, or sensitive data to public repositories
+- The `google-services.json` and `GoogleService-Info.plist` files are excluded from version control
+- Use environment variables or secure configuration management for production deployments
+
+**For production use:**
+1. Set up your own Firebase project
+2. Configure proper security rules
+3. Enable Firebase App Check
+4. Use secure authentication methods
+5. Implement proper error handling and logging

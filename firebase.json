@@ -1,0 +1,27 @@
+{
+  "flutter": {
+    "platforms": {
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "mero-paisa-wallet-sk",
+          "configurations": {
+            "android": "1:802529761829:android:f9d0055e0a04942cc6fdcc"
+          }
+        }
+      },
+      "android": {
+        "default": {
+          "projectId": "mero-paisa-wallet-sk",
+          "appId": "1:802529761829:android:f9d0055e0a04942cc6fdcc",
+          "fileOutput": "android/app/google-services.json"
+        }
+      }
+    }
+  },
+  "firestore": {
+    "database": "(default)",
+    "location": "asia-south1",
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}
