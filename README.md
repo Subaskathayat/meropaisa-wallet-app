@@ -1,10 +1,10 @@
-# 💰 Mero Paisa Wallet - Flutter Digital Wallet App
+#  Mero Paisa Wallet - Flutter Digital Wallet App
 
 A comprehensive Flutter mobile money wallet application with Firebase backend, featuring secure biometric authentication, real-time transactions, and modern UI/UX design.
 
 ## Features
 
-### 🔐 Security & Authentication
+###  Security & Authentication
 - **Custom Biometric Authentication** - Enhanced fingerprint authentication with custom bottom sheet UI
 - **PIN-based Security** - Fallback authentication system
 - **Phone number OTP authentication** via Firebase Auth
@@ -13,37 +13,37 @@ A comprehensive Flutter mobile money wallet application with Firebase backend, f
 - New user profile setup with initial balance
 - Secure user session management
 
-### 💰 Money Management
+###  Money Management
 - Real-time balance display
 - Peer-to-peer money transfers
 - Transaction history with detailed statements
 - Initial welcome bonus of ₹50,000
 
-### 📱 QR Code Functionality
+###  QR Code Functionality
 - QR code scanner for instant transfers
 - Personal QR code generation for receiving payments
 - Camera permission handling
 
-### 🧾 Utility Payments (Simulated)
+###  Utility Payments (Simulated)
 - Mobile top-up
 - Electricity bill payment
 - Water bill payment
 - Internet bill payment
 - Traffic fine payment
 
-### 🎫 Travel & Ticketing (Simulated)
+###  Travel & Ticketing (Simulated)
 - Airline ticket booking
 - Hotel reservations
 - Bus ticket booking
 - Movie ticket booking
 
-### 📊 Transaction Management
+###  Transaction Management
 - Complete transaction history
 - Visual distinction between sent/received payments
 - Transaction filtering and search
 - Real-time balance updates
 
-### 🎨 Modern UI/UX
+###  Modern UI/UX
 - **Custom Biometric Bottom Sheets** - Animated fingerprint scanning interface
 - **Material Design 3** - Modern, intuitive interface
 - **Smooth Animations** - Enhanced user experience with pulsing and transition effects
@@ -236,11 +236,11 @@ This is a demonstration app with the following limitations:
 - No actual money handling
 - Limited error handling for production scenarios
 
-## 🚀 Future Enhancements
+##  Future Enhancements
 
 - Real payment gateway integration
 - Push notifications for transactions
-- ✅ **Biometric authentication** (COMPLETED)
+- **Biometric authentication** (COMPLETED)
 - Transaction receipts and PDF generation
 - Multi-language support
 - Dark mode theme
@@ -260,7 +260,7 @@ This is a demonstration app with the following limitations:
 
 This project is for educational purposes. Please ensure proper licensing for production use.
 
-## 📞 Support
+##  Support
 
 For support and questions, please refer to the in-app support section or create an issue in this repository.
 
